@@ -1,25 +1,42 @@
-\documentclass{report}
+%Import the Thesis formatting
+\documentclass[12pt]{ucthesis}
 
+%Package Imports
 \usepackage[pdftex]{graphicx}
 \usepackage{parskip}
 
 
 \begin{document}
-\title{1200 baud AFSK Demodulation: A cheap solution to hardware TNCs}
-\author{Robert Campbell}
+\title{Improvements and Analysis of Software Based 1200 Baud Audio Frequency Shift Keying Demodulation}
+\author{Robert F. Campbell}
+\degreemonth{June} \degreeyear{2014} \degree{Master of Science}
+\defensemonth{June} \defenseyear{2014}
+\numberofmembers{3} \chair{John Bellardo, Ph.D.} \othermemberA{Bridget Benson, Ph.D.} \othermemberB{Dennis Derickson, Ph.D.} \field{Computer Science} \campus{San Luis Obispo}
+\copyrightyears{seven}
 \maketitle
 
+\begin{frontmatter}
+
+\copyrightpage
+
+\committeemembershippage
+
 \begin{abstract}
-In amateur radio APRS had evolved, but it like many other things in the
-amateur radio community continues to lag behind current times, not taking
-full advantage of new technologies. The goal here is to introduce a new
-software suite that makes the decoding of APRS packets more reliable and
-at a cheap price. Having hardware TNCs can be a very expensive barrier to
-entry, but already having a computer is pretty common these days.
+Digital communications continues to be an interesting field of study as new technologies appear and old methodologies get revisited or renovated. The goal of this research was to look into the old digital communication scheme of Bell 202 and find a way to demodulate the signal in software with results similar to those of hardware demodulators. The research shows that through using Sivan Toledo’s JavaAX25 software package, new demodulation algorithms can be implemented that decode Bell 202 AX.25 encoded packets that the existing software tool could not.
 \end{abstract}
+
 
 \tableofcontents
 
+\end{frontmatter}
+
 \input{introduction.tex}
+\input{background.tex}
+\input{javaax25.tex}
+\input{implmentation.tex}
+\input{testing.tex}
+\input{results.tex}
+\input{futurework.tex}
+\input{conclusion.tex}
 
 \end{document}
