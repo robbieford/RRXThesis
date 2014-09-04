@@ -1,0 +1,65 @@
+Old Organization
+ 1. Introduction
+ 2. Background
+ 3. javaAX25
+ 4. Implementation
+ 5. Testing
+ 6. Results
+ 7. Future Work
+ 8. Conclusion
+ 
+New Organization
+ 1. Introduction
+   The goal of this research is to look into new software based demodulation
+   techniques using Toledo's javaAX25
+ 2. Origins of ax.25
+   - HDLC
+   - Bell 202 (AX.25?)
+   - FSK, AFSK, Radio-teletype (RTTY)
+   - Really focus on the background information and explain with examples...
+      - Bell 202, AFSK, NRZI
+ 3. Current ax.25 Demodulation Approaches
+   - TNCs
+   - Problems with the current approach(es)
+      - Focus on specific deficiencies
+   - Other information about the current state of the art
+ 4. Algorithmic Demodulation Approaches
+   - Zero Crossing
+   - DFT
+   - Correlation
+   - PLL
+   - Advantages of signal Derivative
+      DC offset & emphasis
+ 5. Demodulation Benchmarking
+   - Audio File generation
+   - LA test suite
+ 6. Demodulation Challenges
+         white noise...
+         emphasis
+ 7. Using Sivan Toledo's javax25 package for software based demodulation
+   - Reasons for choosing the javaAX25 package
+      Background information, talk about output...?
+         Peak level
+ 8. Implementation Details
+   - More analysis to show the problems and challenges
+      Discrete sampling vs. continuous signals
+   - Say which performed poorly and why and which performed better and why
+ 9. Testing setup and new testing framework
+ 10. Results
+   - No sense in having a whole section on memory, just note that all approaches
+      use less than ____MB. 
+ 11. Future Work
+ 12. Conclusion
+
+Notes:
+- More charts and graphs the better (only change one thing at a time and show
+   progressions illustrate each one of the weaknesses.
+- Replace tables with bar graphs
+
+ 
+ 
+To Do:
+-New testing framework to compare algorithms side by side
+-Derivative based zero crossing
+-Correlation based preclocking
+-Restructure to move handlebits method
