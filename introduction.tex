@@ -6,4 +6,11 @@ APRS is a digital communication method commonly used by hams in order to report 
 
 This timeline helps to reinforce the fact that the technologies used for this system are old and far from cutting edge. Recently, in 2012, Sivan Toledo put together a Java based software package for demodulating these Bell 202, specifically APRS, packets. Using this package as the framework for testing other demodulation algorithms more insight was gained into software demodulation. Software demodulation provides a low cost alternative to hardware demodulators since users can run the software on hardware that they already possess. For example APRSDroid (an app in the Google’s Android Play Store) directly imports JavaAX25’s software demodulation [5]. 
 
+\begin{figure}
+  \centering
+  \includegraphics[width=0.75\linewidth]{images/GeneralSineCurve.png}
+%  \includegraphics{images/GeneralSineCurve.png}
+  \caption{Example Bell202 signal for the bit stream 010101}
+\end{figure}
+
 As mentioned thus far, software provides a viable low cost alternative to dedicated hardware, but still has some weaknesses that need to be addressed to improve reliability to match hardware. Section 2 goes into background information. Section 3 gives a summary and detailed information on Toledo's JavaAX25 package. Section 4 goes into our implementation specifics, discussing our different algorithms and interesting edge cases that we encountered. Section 5 describes the methods for testing the implementations. Section 6 discusses results including decoded packets and some rough memory usage analysis. Section 7 comments on areas for future work, and finally section 8 concludes this research project.
