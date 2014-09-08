@@ -1,4 +1,4 @@
-\chapter{Current ax.25 Demodulation Approaches}
+\chapter{Current APRS Demodulation Approaches}
 
 \section{Terminal Node Controllers}
 %Currently copied from old hardware based demodulators
@@ -19,3 +19,6 @@ However, both the options that were presented in section 2.1 and 2.2 require goi
 It can be assumed that before a ham operator becomes interested in the APRS network and sending APRS packets that they will already have a radio. So, if they already have a radio all they have to do is buy a piece of hardware that will do the modulation in order to send a packet. However, hardware costs money and as hams are at least somewhat technology savvy most have computers. A software solution seeks to take advantage of the computer already in the operator’s possession to do the modulation and demodulation and hence offer a cheaper alternative.
 
 This seems to be a route that some are taking and a demodulation scheme that this project explores in detail, but first some more information on current systems that operate in this software realm. Some examples of the software that can be used are George Rossopoylos’s Packet Engine or Thomas Sailer’s Linux Sound Modem. On a computer, even ones with minimal resources, there are algorithms that are being used to demodulate the APRS packets. Again, what this project aims to investigate is if improvements can be made to the algorithms used to decode these packets in order to make the software based systems more robust and as good as dedicated hardware. Preliminary testing shows that the software still has room for improvement in order to be at least as good as dedicated hardware.
+
+%!!!!!!!!!!!!NEED MOTIVATION... EXPLAING PROS OF SOFTWARE HERE...!!!!!!!!!!!!!
+%As mentioned thus far, software provides a viable low cost alternative to dedicated hardware, but is just that - a cheap solution. It still has some weaknesses that need to be addressed, and refinements to be made to improve demodulation to match performance of hardware. 
