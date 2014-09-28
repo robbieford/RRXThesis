@@ -4,6 +4,16 @@
 %Package Imports
 \usepackage[pdftex]{graphicx}
 \usepackage{parskip}
+\usepackage{url}
+\usepackage{titlesec}
+\usepackage{hyperref}
+\hypersetup{
+	colorlinks,
+	citecolor=black,
+	filecolor=black,
+	linkcolor=black,
+	urlcolor=blue
+}
 
 
 \begin{document}
@@ -45,11 +55,8 @@ Digital communications continues to be a relevant field of study as new technolo
 \input{futurework.tex}
 \input{conclusion.tex}
 
-
 \bibliographystyle{plain}
-
-\bibliography{references}
-
-\nocite{*}
+\bibliography{../references}
+%\nocite{*}
 
 \end{document}
