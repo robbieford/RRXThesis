@@ -1,13 +1,3 @@
-Old Organization
- 1. Introduction
- 2. Background
- 3. javaAX25
- 4. Implementation
- 5. Testing
- 6. Results
- 7. Future Work
- 8. Conclusion
- 
 New Organization
  1. Introduction
    The goal of this research is to look into new software based demodulation
@@ -56,10 +46,28 @@ Notes:
    progressions illustrate each one of the weaknesses.
 - Replace tables with bar graphs
 
- 
- 
+
 To Do:
+-java ext modem... what are you!?!?
+   http://amsat-uk.org/2013/08/29/a-ham-radio-ax-25-open-source-soundcard-modem/
+   http://extradio.sourceforge.net/extmodem.html
+-javaprs vs javax25
+-Bar graphs for data
 -New testing framework to compare algorithms side by side
--Derivative based zero crossing
--Correlation based preclocking
+-New Algorithms
+   -Derivative based zero crossing
+   -Correlation based preclocking
 -Restructure to move handlebits method
+Schedule:
+-Chapter 2 9/24
+-Chapter 3 9/25
+-Chapter 4 9/27 9/30
+-Chapter 5 9/27
+-Chapter 6 9/27
+-Chapter 7 9/27
+-Code Clean Up 9/27
+-Chapter 8 9/28
+-Chapter 9 9/28
+-Chapter 10 9/28
+-Chapter 11 9/29
+-Chapter 12 9/29

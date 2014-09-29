@@ -1,30 +1,39 @@
 \chapter{APRS Background and Definitions}
-%Currently copied from old background chapter
-The following sections in this chapter aim to describe, in detail, ax.25. This includes a discussion from related protocols to ax.25 to the underlying Frequency Shift Keying (FSK) modulation used for ax.25 and many things around and in between these two aspects.
+From the introduction it is known that APRS is a method of digital communication used by hams in order to inform other hams of their location. In addition to supporting sending of positions APRS can be used to send messages, bulletins, weather, and other information. Since these packets are transmitted via radio  - which has limited coverage - APRS can be looked at as a local area awareness network, giving hams who are listening for and decoding APRS packets information about nearby transmitting stations. This brief overview should give a little insight into the uses of APRS, but the rest of the section will focus more on what is going on behind-the-scenes to explain how APRS works in terms of the protocols, data transmission, modulation, etc.
 
-APRS is designed for hams (amateur radio operators), by hams. There is a plethora of features supported within the specification of APRS including the sending of messages, bulletins, meteorological data, waypoints, objects, and most commonly GPS locations. Many of the capabilities have not been fully implemented and other implementation details are inconsistent. The goal of this research is not to discuss the shortcoming in the APRS protocol itself which lies within its implementation and use on top of the AX.25 protocol. Instead this research focuses on Layer 1 problems in the Open System Interconnection (OSI) model.
+If one tried to separate the aspects of the APRS system into layers of the Open Systems Interconnection (OSI) model they would experience difficulty in trying to make clear cut decisions. However, one interpretation could be that APRS's OSI Layer 1 consists of the radios (commonly transmitting in the 144-146MHz range), the Radio Frequency (RF) spectrum occupied by the frequency selected by the radios, and the Bell 202 modulation used to encode the data. Layers 2 and 3 get a little more messy since the ax.25 protocol used by APRS covers aspects of both of these areas. Alternatively one could argue that there is no Layer 3 and APRS only has a Layer 3. For instance the checksum in the packet could be argued to be the Layer 2 portion, but there is no separate encapsulation for the routing information which would be considered part of Layer 3.
 
-The Layer 1 protocol for ARPS is based off of a Bell 202 modem. The Bell 202 modem was patented in 1984 using 1200Hz and 2200Hz tones, although the patent was originally filed in 1981 (((REFERENCE 1))). Interestingly, the international telecommunication union didn’t publish a standard for these modems that were used in telephone networks until 1988. In the standard, however they use 1300Hz and 2100Hz tones for symbol 1 (called a mark) and symbol 0 (called a space) respectively (((REFERENCE 2))). The basic modulation scheme is that the marks and spaces are used in a non-return to zero inverted (NRZI) encoding for the actual data. When a transition occurs from one symbol to another that symbolizes a ‘0’ bit in the original data bit stream and if the symbol remains constant over multiple symbol periods, that signifies a ‘1’ bit in the original data bit stream. It is also worth noting that there will be no more than 5 consecutive symbols during a packet, as the scheme will bit stuff in order to make sure that synchronization on the clock can be maintained. The only exception to this rule is for the flag(s) that mark the start and end of a packet. The AX.25 flag is hex 0x7E without bit stuffing. Common practice is to send multiple flags consecutively to give transmitting radio time to key up and settle and to give receiving radios time for their squelch to open.
-
-This encoding and modulation is used to transmit the data of the APRS packets, but further background is needed in the APRS environment to discuss where this research applies. As mentioned this will not be looking into the APRS protocol itself but more focused on the Bell 202 modem and specifically the demodulation aspects. Implementing a Bell 202 modulator is simple in comparison to making a robust demodulator - especially when trying to implement one in software.
-
-%Old?
-%The motivation for this project lies within the roots of amateur radio. Amateur radio operators, commonly referred to as hams, are a community of people who are joined together by their enjoyment for hearing themselves talk and through coming up with creative solutions to their communication problems. The Automatic Packet Reporting System (APRS) is one example of a creative communication solution that the community utilizes. APRS is a digital communication method commonly used by hams to report their GPS location. This location is then used to facilitate local area awareness to fellow operators. However, it has many more uses than just GPS tracking.
-
-%APRS is a dated system and the approach for development and maintenance is if it works, don't touch it. A lot of the infrastructure for this system is based on retired commercial hardware that could be purchased at a low cost. For instance, the Bell 202 modem (which employs the same modulation scheme for APRS) was patented in 1984 and the FSK modulation scheme used to transmit the data was approved by the International Telecommunication Union in 1988 (((REFERENCES 1, 2))). However, the actual specification for APRS was published in 2000, 12 years after these technologies were finalized (((REFERENCE 3))).
-
-%This timeline helps to reinforce the fact that the technologies used for this system are old and far from cutting edge. Recently, in 2012, Sivan Toledo put together a Java based software package for demodulating these Bell 202, specifically APRS, packets. Using this package as the framework for testing other demodulation algorithms more insight was gained into software demodulation. Software demodulation provides a low cost alternative to hardware demodulators since users can run the software on hardware that they already possess. For example APRSDroid (an application in the Google’s Android Play Store) directly imports JavaAX25’s software demodulation (((REFERENCE 5))). 
-
-\section{High-Level Data Link Control}
-
-\section{Frequency Shift Keying}
-
-%Perhaps a little tangental and out of the scope?
-\section{Radio Teletype}
-
-\section{Bell 202}
+Regardless of how exactly APRS fits into the OSI model there are a few implementation details that are going to be discussed. First x.25 will be introduced, then High-Level Data Link Control (HLDC), and how the two come together for ax.25. Examining closer to Layer 1, Frequency Shift Keying (FSK) and the Bell 202 modulation will be discussed.
 
 %Apparently similar to x.75?
 \section{x.25}
 
+\section{High-Level Data Link Control}
+
 \section{ax.25}
+
+\section{Frequency Shift Keying}
+
+\section{Bell 202}
+
+
+
+%Perhaps a little tangental and out of the scope? maybe a worthwhile mention in another section
+%\section{Radio Teletype}
+
+
+%Currently copied from old background chapter
+%The following sections in this chapter aim to describe, in detail, ax.25. This includes a discussion from related protocols to ax.25 to the underlying Frequency Shift Keying (FSK) modulation used for ax.25 and many things around and in between these two aspects.
+
+%APRS is designed for hams (amateur radio operators), by hams. There is a plethora of features supported within the specification of APRS including the sending of messages, bulletins, meteorological data, waypoints, objects, and most commonly GPS locations. Many of the capabilities have not been fully implemented and other implementation details are inconsistent. The goal of this research is not to discuss the shortcoming in the APRS protocol itself which lies within its implementation and use on top of the AX.25 protocol. Instead this research focuses on Layer 1 problems in the Open System Interconnection (OSI) model.
+
+%The Layer 1 protocol for ARPS is based off of a Bell 202 modem. The Bell 202 modem was patented in 1984 using 1200Hz and 2200Hz tones, although the patent was originally filed in 1981 \cite{stauffer1984fsk}. Interestingly, the international telecommunication union didn’t publish a standard for these modems that were used in telephone networks until 1988. In the standard, however they use 1300Hz and 2100Hz tones for symbol 1 (called a mark) and symbol 0 (called a space) respectively \cite{ITUV23}. The basic modulation scheme is that the marks and spaces are used in a non-return to zero inverted (NRZI) encoding for the actual data. When a transition occurs from one symbol to another that symbolizes a ‘0’ bit in the original data bit stream and if the symbol remains constant over multiple symbol periods, that signifies a ‘1’ bit in the original data bit stream. It is also worth noting that there will be no more than 5 consecutive symbols during a packet, as the scheme will bit stuff in order to make sure that synchronization on the clock can be maintained. The only exception to this rule is for the flag(s) that mark the start and end of a packet. The AX.25 flag is hex 0x7E without bit stuffing. Common practice is to send multiple flags consecutively to give transmitting radio time to key up and settle and to give receiving radios time for their squelch to open.
+
+%This encoding and modulation is used to transmit the data of the APRS packets, but further background is needed in the APRS environment to discuss where this research applies. As mentioned this will not be looking into the APRS protocol itself but more focused on the Bell 202 modem and specifically the demodulation aspects. Implementing a Bell 202 modulator is simple in comparison to making a robust demodulator - especially when trying to implement one in software.
+
+%Old?
+%The motivation for this project lies within the roots of amateur radio. Amateur radio operators, commonly referred to as hams, are a community of people who are joined together by their enjoyment for hearing themselves talk and through coming up with creative solutions to their communication problems. The Automatic Packet Reporting System (APRS) is one example of a creative communication solution that the community utilizes. APRS is a digital communication method commonly used by hams to report their GPS location. This location is then used to facilitate local area awareness to fellow operators. However, it has many more uses than just GPS tracking.
+
+%APRS is a dated system and the approach for development and maintenance is if it works, don't touch it. A lot of the infrastructure for this system is based on retired commercial hardware that could be purchased at a low cost. For instance, the Bell 202 modem (which employs the same modulation scheme for APRS) was patented in 1984 and the FSK modulation scheme used to transmit the data was approved by the International Telecommunication Union in 1988 \cite{stauffer1984fsk, ITUV23}. However, the actual specification for APRS was published in 2000, 12 years after these technologies were finalized \cite{Group2000}.
+
+%This timeline helps to reinforce the fact that the technologies used for this system are old and far from cutting edge. Recently, in 2012, Sivan Toledo put together a Java based software package for demodulating these Bell 202, specifically APRS, packets. Using this package as the framework for testing other demodulation algorithms more insight was gained into software demodulation. Software demodulation provides a low cost alternative to hardware demodulators since users can run the software on hardware that they already possess. For example APRSDroid (an application in the Google’s Android Play Store) directly imports JavaAX25’s software demodulation \cite{APRSdroid}. 
