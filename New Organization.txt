@@ -58,6 +58,8 @@ To Do:
    -Derivative based zero crossing
    -Correlation based preclocking
 -Restructure to move handlebits method
+
+-Chapters 2-7 are static (Get those finished this weekend?)
 Schedule:
 -Chapter 2 9/24
 -Chapter 3 9/25
