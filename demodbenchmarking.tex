@@ -3,28 +3,28 @@ In order to compare the results of the different demodulators a method of benchm
 
 \section{Plain, Straight, and Clean Packets}
 These audio files were just what the title implies - straight packets. What is meant by straight packets is that they are pure "perfect" 1200Hz and 2200Hz tone audio samples. There is no noise introduced through artificial or natural means such as noise introduced through the intrinsics of using RF and the medium. Although these files do not provide meaningful results for hardware or already implemented software solutions since these devices will be able to decode every packet in the audio file, it still provides a good starting point for getting new algorithms up and running. Two of these clean files were generated. One was generated from an open tracker creating packets with a counter and the text "The quick brown fox jumps over the lazy dog". The audio file contained a total of 40 packets and proved to be short enough to allow for quick cross checking as modifications were made. The second file was generated in software using Toledo's javaAX25 package which will be discussed in more detail in Chapter 7. All that is relevant at this point is that it has perfect levels (1200Hz and 2200Hz tones are at the exact same level) and contains 200 packets making the file quite a bit longer. An example segment from the 200 packet audio file can be seen in the figure below.
-\begin{Figure}
+\begin{figure}
   \centering
-	\includegraphics[width=0.75\linewidth]{Examplesignalsegmentfromthe200packetgeneratedfile.png} 
-	\captionof{figure}{Example of AFSK signal in the 200 packet generated file.}
-\end{Figure}
+	\includegraphics[width=0.75\linewidth]{images/Examplesignalsegmentfromthe200packetgeneratedfile.png} 
+	\caption{Example of AFSK signal in the 200 packet generated file.}
+\end{figure}
 
 \section{White Noise Testing}
 The second test file that was used on the demodulators was the 40 packet open tracker generated file mentioned in the previous section with added artificial white noise. An advantage of this file is that its contents are known while still being a reasonable benchmarking file. No demodulator could demodulate all the packets out of the file as the noise was stepped from no noise all the way up to a signal to noise ration (SNR) of 0.5. There were  total of 10 steps meaning that at each noise level there were approximately 4 packets. This noise was added to the original audio file using the audio editing program Audacity \cite{Mazzoni}. Although this file does not directly characterize what is introduced by RF it provides a reasonable test simulating the effects of a decreased SNR on the audio signal. An example segment from this white noise added file can be seen in the figure below.
-\begin{Figure}
+\begin{figure}
   \centering
-	\includegraphics[width=0.75\linewidth]{ExampleSignalSegmentfromtheGeneratedFilewithNoise.png} 
-	\captionof{figure}{Example of a generated AFSK signal with artificial white noise added.}
-\end{Figure}
+	\includegraphics[width=0.75\linewidth]{images/ExampleSignalSegmentfromtheGeneratedFilewithNoise.png} 
+	\caption{Example of a generated AFSK signal with artificial white noise added.}
+\end{figure}
  
 \section{Los Angeles APRS Test Recordings}
 %:04-25:45 57/min averaging over the first 3 minutes
 This next benchmark is the de-facto benchmark for demodulators. The idea behind it is simple, yet it provides a very comprehensive test. The author of this file recorded on air APRS traffic in the Los Angeles Area for 45 minutes. He them removed segments of no traffic and condensed 45 minutes of live recording down to about 25 minutes. The really nice thing is that it is real traffic which contains all of the real life situation. Stations close to the receiver, far from the receiver, moving, stationary, different transmit power levels, different hardware, and varying content just to name a few of the advantages. One disadvantage is that since it is just a random recording of traffic on the air there is no definitive answer of how many packets are in the file. After listening to the audio file by ear it is approximated that there are a total of about 1463 packets by listening to the first 3 minutes as a sample and extrapolating to the length of the audio segment. Just as a reminder this is considered \textit{the} file use for benchmarking in the community and when people discuss the performance of their demodulator they quote it in how many packets they were able to successfully decode out of this file. An example segment from this off air recording of APRS traffic can be seen in the figure below.
-\begin{Figure}
+\begin{figure}
   \centering
-	\includegraphics[width=0.75\linewidth]{ExampleSignalSegmentfromtheLosAngelesRecording.png} 
-	\captionof{figure}{Example of AFSK signal in the Los Angeles Recording Test File.}
-\end{Figure}
+	\includegraphics[width=0.75\linewidth]{images/ExampleSignalSegmentfromtheLosAngelesRecording.png} 
+	\caption{Example of AFSK signal in the Los Angeles Recording Test File.}
+\end{figure}
 
 %Well, this hasn't been implmented yet...
 %\section{Single Station RF Test}
