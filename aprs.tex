@@ -30,7 +30,7 @@ In order to understand the Bell 202 modulation scheme the communication mode of 
 With FSK and AFSK now introduced the AFSK used within Bell 202 can be described. The Bell 202 modem was patented in 1984 using 1200Hz and 2200Hz tones, although the patent was originally filed in 1981 \cite{stauffer1984fsk}. Interestingly, the International Telecommunication Union (ITU) did not publish a standard for this modulation that were used in telephone networks until 1988. In the standard, however they use 1300Hz tone for symbol 1 and 2100Hz tone for symbol 2 called a mark and space respectively \cite{ITUV23}. The original bit stream is modulated using a non-return to zero inverted (NRZI) encoding. This means that when a transition occurs from one symbol to another in the Bell 202 modulated signal this symbolizes a 0 bit in the original data bit stream and if the Bell 202 symbol remains constant over multiple symbol periods, that signifies a 1 bit in the original data bit stream. For Bell 202 the frequencies that are used are 1200Hz and 2200Hz tones for the mark and the space as opposed to the 1300Hz and 2100Hz tones proposed in the ITU specification.
 \begin{figure}
   \centering
-	\includegraphics[width=0.75\linewidth]{Datasignalencodingbitstream0000.png} 
+	\includegraphics[width=0.75\linewidth]{images/Datasignalencodingbitstream0000.png} 
 	\caption{Example Bell 202 signal encoding the bit stream '0000'.}
 	\label{exampleBitStream}
 \end{figure}
