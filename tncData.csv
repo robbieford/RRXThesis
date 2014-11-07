@@ -1,0 +1,6 @@
+.wav file,Correlation 0 Emphasis,Correlation 6 Emphasis,Multi,Zero Crossing,Strict Zero Crossing,Windowed Zero,Peak,PreClocking,Multi + PreClocking,OT2,OT3,OT USB,Kam,PK-88,OT3 Micro,PK-232,Goertzel
+OT3Test,40,40,40,40,,39,0,40,40,40,40,39,40,40,,40,40
+SoftwareGenerated200,200,200,200,200,200,200,200,200,200,200,200,193,200,,,200,200
+OT3TestWithNoise,24,11,24,0,6,0,0,17,24,5,16,13,12,25,,18,17
+LATrack1,964,914,966,64,568,217,0,938,966,947,937,869,985,1007,,964,935
+LATrack2,872,958,962,0,0,88,0,939,972,927,445,633,998,633,,799,411
