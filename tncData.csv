@@ -1,6 +1,19 @@
-.wav file,Correlation 0 Emphasis,Correlation 6 Emphasis,Multi,Zero Crossing,Strict Zero Crossing,Windowed Zero,Peak,PreClocking,Multi + PreClocking,OT2,OT3,OT USB,Kam,PK-88,OT3 Micro,PK-232,Goertzel,AGWPE
-OT3Test,40,40,40,40,,39,0,40,40,40,40,39,40,40,40,40,40,40
-SoftwareGenerated200,200,200,200,200,200,200,200,200,200,200,200,193,200,,199,200,200,200
-OT3TestWithNoise,24,11,24,0,6,0,0,17,24,5,16,13,12,25,12,18,17,21
-LATrack1,964,914,966,64,568,217,0,938,966,947,937,869,985,1007,830,964,935,967
-LATrack2,872,958,962,0,0,88,0,939,972,927,445,633,998,633,263,799,411,497
+.wav file,Filtering,Correlation,Zero Crossing,Strict Zero Crossing,Windowed Zero,PreClocking,Goertzel,Peak,AGWPE,OT2,OT3,OT USB,OT3 Micro,Kam Plus,PK-88,PK-232,Multi (Correlation Bandpass and Correlation 6dB),Multi + PreClocking,,,,MAX,File Length
+OT3Test,None,40,40,40,39,0,40,0,40,40,40,39,40,40,40,40,40,40,,,,40,20
+,Bandpass,40,9,0,0,40,40,0,,,,,,,,,,,,,,40,184
+,Bandpass w/ 6db,40,0,40,0,39,40,0,,,,,,,,,,,,,,40,20
+SoftwareGenerated200,None,200,200,200,200,0,200,0,200,200,200,193,199,200,,200,200,200,,,,200,1549
+,Bandpass,200,196,200,0,200,200,0,,,,,,,,,,,,,,200,1549
+,Bandpass w/ 6db,200,0,200,0,200,200,0,,,,,,,,,,,,,,200,55:22:00
+OT3TestWithNoise,None,24,0,6,0,0,17,0,21,5,16,13,12,12,25,18,24,24,,,,25,
+,Bandpass,24,3,2,0,17,21,0,,,,,,,,,,,,,,24,
+,Bandpass w/ 6db,11,0,9,0,6,8,0,,,,,,,,,,,,,,11,
+LATrack1,None,946,64,568,217,0,935,0,967,947,937,869,830,985,1007,964,966,966,,,,1007,
+,Bandpass,964,74,151,0,938,941,0,,,,,,,,,,,,,,964,
+,Bandpass w/ 6db,914,0,422,0,481,613,0,,,,,,,,,,,,,,914,
+LATrack2,None,639,0,0,88,0,411,0,497,927,445,633,263,998,633,799,962,972,,,,998,
+,Bandpass,872,0,0,0,939,401,0,,,,,,,,,,,,,,,
+,Bandpass w/ 6db,958,56,74,0,946,946,0,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,
