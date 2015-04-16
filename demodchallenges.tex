@@ -1,4 +1,4 @@
-\chapter{Demodulation Challeneges}
+\chapter{Demodulation Challenges}
 While analyzing the different demodulation algorithms and trying to improve their performance there were a few phenomena that were observed. there are a few things that were problematic for software based demodulation. Some of these items are definitely challenges to any kind of demodulation, but while inspecting performance of the algorithms the following items gave us difficulty: DC Offset, White Noise, RF Characteristics, and emphasis.
 
 \section{Challenge: DC Offset}
@@ -11,14 +11,15 @@ An audio signal can be characterized by a sine wave. In order to get different s
 \end{figure}
 
 \section{Challenge: Noise And RF}
-One other challenge was the fact that the digital stream in converted to an audio signal and then transmitted over RF. Since it is a FSK modulated signal that is decoded on the receiving end, ideally you would like the signal to come through as clean as possible. This is not the case for just the signals used in the specific application of APRS but with all wireless technologies. One cause is increased distance between the transmitter and receiver. An example that many are probably familiar with is as a client gets farther away from a wireless access point the bandwidth decreases. This happens because the signal strength drops off like 1 / distance cubed \cite{4Gon}. What was noticed when some of the algorithms were being debugged, was that the random noise that could be inflicted due to the nature of transmitting a wireless signal caused significant problems.
+One other challenge was the fact that the digital stream in converted to an audio signal and then transmitted over RF. Since it is a FSK modulated signal that is decoded on the receiving end, ideally you would like the signal to come through as clean as possible. This is not the case for just the signals used in the specific application of APRS but with all wireless technologies. One cause of noise is increased distance between the transmitter and receiver. An example that many are probably familiar with is as a client gets farther away from a wireless access point the bandwidth decreases. This happens because the signal strength drops off like 1 / distance cubed \cite{4Gon}. What was noticed when some of the algorithms were being debugged, was that the random noise that could be inflicted due to the nature of transmitting a wireless signal caused significant problems.
 
-One such example of this is if the noise happened to also take on the form of a sine wave and the algorithm locked onto that frequency instead of the 1200Hz or 2200Hz signal that was wanted to be decoded. Alternatively, if the noise was just random and jostled the signal in the correct spot 1200Hz tones might look like 2200Hz (this ended up being fairly common) or vice versa. An example of what noise may look like on the original signal is in the figure below.
-%\begin{figure}
-%  \centering
-%	\includegraphics[width=0.75\linewidth]{images/Datasignalencodingbitstream0000.png} 
-%	\caption{Example Bell 202 signal encoding the bit stream '0000'.}
-%\end{figure}
+One such example of this is if the noise happened to also take on the form of a sine wave and the algorithm locked onto that frequency instead of the 1200Hz or 2200Hz signal that was wanted to be decoded. Alternatively, if the noise was just random and jostled the signal in the correct spot 1200Hz tones might look like 2200Hz (this ended up being fairly common) or vice versa. An example of what noise may look like on the original signal is in the Figure \ref{noiseExample}.
+\begin{figure}
+  \centering
+	\includegraphics[width=0.75\linewidth]{images/Datasignalencodingbitstream0000WithNoise.png} 
+	\caption{Example Bell 202 signal encoding the bit stream '0000'.}
+   \label{noiseExample}
+\end{figure}
 
 %\section{Challenge: RF}
 
