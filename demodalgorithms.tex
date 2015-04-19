@@ -40,7 +40,7 @@ One thing considered while trying to demodulate the Bell 202 signals was the imp
 \section{Additional Benefits of Software Based Decoding}
 Software is flexible. Any one of the aforementioned algorithms can be used on the same hardware without having to add additional discrete components, add new Integrated Circuits (ICs), or make modifications to a Printed Circuit Board (PCB). There are a two benefits of using software instead of dedicated hardware that this research will investigate; first exhaustive search of a signal through the use of buffers, and second, the ability to be able to run multiple of these demodulation approaches in parallel.
 
-\subsecion{Exhaustive Search of Incoming Signal}
+\subsection{Exhaustive Search of Incoming Signal}
 Using software the input signal can be buffered in the program and then searched for a signal. Since there is not a separate data and clock signal, there could be a case when the clocking is improperly selected. Using an approach of buffering data that may contain a valid packet, the software can step through the data trying every possible clocking option.
 
 \subsection{Taking Advantage of Parallel Demodulation}
