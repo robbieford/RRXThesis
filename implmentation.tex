@@ -1,5 +1,28 @@
 \chapter{Implementation}
 
+This chapter will go through all of the implementation details of each algorithm implemented. They will be presented in order of simplicity, with the more intricate ones presented last. Before diving into each of implementations, some more information will be presented on the javaAX25 software suite created by Sivan Toledo, which is the basis that this project has it is foundations in order to be able to analyze these different approaches.
+
+\section{javaAx25}
+
+As mentioned earlier, one of the software demodulation approaches is Sivan Toledo's JavaAX25. The advantage of using Toledo's AX.25 package for benchmarking different algorithms is that due to the code structure and package hierarchy it makes it simple to interchange different demodulation algorithms. Also, the software is hosted on github making it convenient to access the repository. The next few paragraphs will give an overview of the features that Toledo’s software package has available in it with more detail on why this was a good code base to use as a foundation for this project \cite{Toledo2012,javax25github}.
+
+JavaAX25 is a comprehensive package for doing software based modulation and demodulation of APRS packets - of course it does have AX25 in its name, so it is good that it lives up to its name. It includes packages for interfacing with radios, sound cards, and other standard packet programs that are used on computers. One example for interfacing with other programs is that there is a plugin to use JavaAX25 with AGW Packet Engine. In addition to having all of the items that are needed to be able to do the AX.25 modulation, demodulation, and interfacing with hardware, there is also a test application. Although all of these features were included, the three primarily used in this project were the modulation, demodulation, and testing.
+
+The modulation portion coupled with the testing application for generating wav audio files. This was used to be able to generate the test file that had 200 packets in it for benchmarking the different demodulators.
+
+The demodulation portion was the place where the most work was done. Through implementing an interface multiple demodulators could be interchanged and there performances compared. The first algorithm, was the one that Toledo implemented the JavaAX25 package with which was based off or correlation. To get more information about how a correlation algorithm works please refer to the corresponding previous section. From this correlation algorithm others, described individually bellow, were inserted into the demodulation path and tested.
+
+
+%SIVAN CORRELATION?
+%The algorithm that Toledo is currently using for the demodulation is correlation based. This is done by correlating the input signal with both a 1200Hz and a 2200Hz sine wave and seeing which of the two the input signal correlates with more. Once the correlation with each is established he filters the correlation data in order to smooth the results and make it easier to be able to pull the correct frequency out of the calculations. However, before doing any of the correlation calculations the data is passed through a band pass filter centered about 1700Hz which can be seen in \ref{SivanBandPassFilter}.
+
+%%%FIGURE OF BANDPASS FILTER FROM SIVAN.
+
+%Software demodulation provides a low cost alternative to hardware demodulators since users can run the software on hardware that they already possess. For example APRSDroid (an application in the Google’s Android Play Store) directly imports JavaAX25’s software demodulation \cite{APRSdroid}. 
+
+%Talk about filtering and include filter (((FIGURE)))
+
+
 The implementation started with a naive approach that allowed for more insight to be gained into the JavaAX25 software package. Some of the results and features that were found have been presented in the previous section. The first algorithm implemented was a Modified Zero Crossing Algorithm explained in section 4.1. Section 4.2 discusses our strict zero crossing. Section 4.3 discusses the windowed zero crossing. Section 4.4 discusses the peak detection algorithm. Our final implementation is a Preclocking demodulation algorithm and is discussed in section 4.5.
 
 \section{Modified Zero Crossing}
