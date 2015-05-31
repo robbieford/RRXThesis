@@ -6,9 +6,3 @@
 
 \subsection{Hardware and Software Comparisons}
 
-%Old Content
-In order to evaluate the results, it is done on a comparative basis. On the synthesized files it is known exactly how many packets are in them, but on the real world test (for instance the recording from Los Angeles) we are unsure of exactly how many packets the file contains, so the results can only be compared to each other to see how many packets the different methods decoded.
-
-One of the nice features of doing things in software is that there is the opportunity to run things in parallel. This is not insinuating that parallel computing was used, but just that the samples were fed to multiple different demodulation algorithms and the packets deduplicated. This is how some conclusions could be drawn from our results. For instance the Preclocking demodulation did not decode more packets than the current correlation based approach - yet - but it was decoding packets that the correlation was not decoding, which can be seen from when the algorithms were run together. Other algorithms were just ran standalone since the number of packets that they were successfully decoding on their own were a significant percentage less.
-
-Also, it can be seen that the initial implementation does have work that needs to be done in order to make it as good as hardware TNCs, even after making the improvements to the software demodulator the TNCs were decoding more packets than the software could. A full list of our results can be seen in Table 2.
