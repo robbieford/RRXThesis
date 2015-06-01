@@ -31,9 +31,51 @@ The next two files are the ones that were used most extensively in the testing f
    \label{allHardwareTrack2}
 \end{figure}
 
-Using these results the best numbers for the hardware were 40 packets decoded from the Open Track 3 test, 200 from the javAX25 generated file, 25 from the Open Tracer 2 test with added noise, 1007 from Track 1 of the LA test suite, and 998 from Track 2.
+Using these results the best numbers for the hardware were 40 packets decoded from the Open Track 3 test, 200 from the javAX25 generated file, 25 from the Open Tracer 3 test with added noise, 1007 from Track 1 of the LA test suite, and 998 from Track 2. These best results can be used as a comparison for the software.
 
 \section{Software Results}
+In this section the number of packets that each of the demodulators in the javAX25 package was able to decode will be presented. This will include the correlation approach that was already implemented before the start of this research as well as all of the new algorithms that were outlined in the previous chapter on Implementation. However, before getting the results of javaAX25 there is one more data set to be introduced which is the results from another software based demodulation from AGW Packet Engine. Using this software 40 packets decoded from the Open Track 3 test, 200 from the javAX25 generated file, 21 from the Open Tracer 3 test with added noise, 967 from Track 1 of the LA test suite, and 497 from Track 2. The results from javAX25 end up being on par with these results as well as those of the hardware.
+
+With a total of 13 algorithms implemented, some did well and others not at all, so as in the section on hardware results, all of the data will be presented and then a focus on those that performed the best will be taken. In the new javAX25 software implementation the filtering was moved from its original location of being on a per demodulator level basis to a central location that allowed each of the algorithms to utilize it. Some of the algorithms ended up relying on it after tuning and others could remain independent. As such, in order to present all of the data each algorithm will not only have a result for each of the 5 test files, but also for each of the three filters used on the data. The three filters used are no filter, a 900-2500Hz bandpass filter, and the same bandpass with a 6dB attenuation of 1200Hz tones to combat the signals that were not emphasized when transmitted but were deemphasized when received. For instance for the Zero Crossing demodulator there will be three values for the Open Tracker 3 Test file, on at each filtering, and there will continue to be a result value at each filtering for the remaining 4 test files.
+
+Now for the data. On the far left of all the plots will be the correlation data which was the current algorithm that it was the goal of this to beat. The performance of no filter on the Open Tracker 3 Test can be seen in Figure \ref{OT3FiltNo}, Figure \ref{OT3Filt0} is with the bandpass filter, and the emphasizing filter results in Figure \ref{OT3Filt6}. From this data from the Open Tracker 3 test looking at the data for the generated 200 test should look familiar aside from the peak demodulator which was always troublesome other than on this file. The Generated 200 Test file is the only file that the peak demodulator performed comperably. The unfiltered data from this test is in Figure \ref{Gen200FiltNo}, the bandpass data in Figure \ref{Gen200Filt0}, and the results of emphasizing the signal in Figure \ref{Gen200Filt6}.
+
+\begin{figure}
+  \centering
+	\includegraphics[width=0.75\linewidth]{images/SoftwarePerformanceonOT3TestwNoFilter.png} 
+	\caption{Software performance on the raw signal from Open Tracker 3 Test.}
+   \label{OT3FiltNo}
+\end{figure}
+\begin{figure}
+  \centering
+	\includegraphics[width=0.75\linewidth]{images/SoftwarePerformanceonOT3TestwBandpassFilter.png} 
+	\caption{Software performance with a bandpass filter on Open Tracker 3 Test.}
+   \label{OT3Filt0}
+\end{figure}
+\begin{figure}
+  \centering
+	\includegraphics[width=0.75\linewidth]{images/SoftwarePerformanceonOT3TestwEmphasisFilter.png} 
+	\caption{Software performance with an emphasis filter on Open Tracker 3 Test.}
+   \label{OT3Filt6}
+\end{figure}
+\begin{figure}
+  \centering
+	\includegraphics[width=0.75\linewidth]{images/SoftwarePerformanceonGenerated200wNoFilter.png} 
+	\caption{Software performance on the raw signal from Open Tracker 3 Test.}
+   \label{Gen200FiltNo}
+\end{figure}
+\begin{figure}
+  \centering
+	\includegraphics[width=0.75\linewidth]{images/SoftwarePerformanceonGenerated200wBandpassFilter.png} 
+	\caption{Software performance with a bandpass filter on Open Tracker 3 Test.}
+   \label{Gen200Filt0}
+\end{figure}
+\begin{figure}
+  \centering
+	\includegraphics[width=0.75\linewidth]{images/SoftwarePerformanceonGenerated200wEmphasisFilter.png} 
+	\caption{Software performance with an emphasis filter on Open Tracker 3 Test.}
+   \label{Gen200Filt6}
+\end{figure}
 
 \subsection{Hardware and Software Comparisons}
 
