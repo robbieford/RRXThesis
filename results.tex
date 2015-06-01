@@ -61,21 +61,84 @@ Now for the data. On the far left of all the plots will be the correlation data 
 \begin{figure}
   \centering
 	\includegraphics[width=0.75\linewidth]{images/SoftwarePerformanceonGenerated200wNoFilter.png} 
-	\caption{Software performance on the raw signal from Open Tracker 3 Test.}
+	\caption{Software performance on the raw signal from Generated 200.}
    \label{Gen200FiltNo}
 \end{figure}
 \begin{figure}
   \centering
 	\includegraphics[width=0.75\linewidth]{images/SoftwarePerformanceonGenerated200wBandpassFilter.png} 
-	\caption{Software performance with a bandpass filter on Open Tracker 3 Test.}
+	\caption{Software performance with a bandpass filter on Generated 200.}
    \label{Gen200Filt0}
 \end{figure}
 \begin{figure}
   \centering
 	\includegraphics[width=0.75\linewidth]{images/SoftwarePerformanceonGenerated200wEmphasisFilter.png} 
-	\caption{Software performance with an emphasis filter on Open Tracker 3 Test.}
+	\caption{Software performance with an emphasis filter on Generated 200.}
    \label{Gen200Filt6}
 \end{figure}
 
-\subsection{Hardware and Software Comparisons}
+Again, moving on from the "easy" files the performance of the software demodulators on the Open Tracker 3 Test with the noise added can be seen. Figure \ref{OTNoiseFiltNo} shows the data for the unfiltered file, Figure \ref{OTNoiseFilt0} has a bandpass filter, and Figure \ref{OTNoiseFilt6} has the emphasis filter. Two algorithms really start to shine as being comparable, and in some cases better, than the correlation demodulator. Those are the Goertzel Filter Demodulator and the PLL Demodulator. Although this isn't data that was actually transmitted, these two start so who promise. Even the Strict Zero crossing can be seen doing well once the audio file is emphasized, but it doesn't stand up to the competition in the next two test files.
 
+\begin{figure}
+  \centering
+	\includegraphics[width=0.75\linewidth]{images/SoftwarePerformanceonNoisyOT3wNoFilter.png} 
+	\caption{Software performance on the raw signal from Open Tracker Test with Noised Added.}
+   \label{OTNoiseFiltNo}
+\end{figure}
+\begin{figure}
+  \centering
+	\includegraphics[width=0.75\linewidth]{images/SoftwarePerformanceonNoisyOT3wBandpassFilter.png} 
+	\caption{Software performance with a bandpass filter on Open Tracker Test with Noised Added.}
+   \label{OTNoiseFilt0}
+\end{figure}
+\begin{figure}
+  \centering
+	\includegraphics[width=0.75\linewidth]{images/SoftwarePerformanceonNoisyOT3wEmphasisFilter.png} 
+	\caption{Software performance with an emphasis filter on Open Tracker Test with Noised Added.}
+   \label{OTNoiseFilt6}
+\end{figure}
+
+As mentioned earlier these next two test files were those that were thought the be most important to the research to succeed at. As such Track 1 is the test that many of the algorithms were tuned to, since this would represent the closest real-world simulation possible. The Track 2 results which is the same content as Track 1 just deemphasized is also presented for comparison. However in Track 2, in addition to being deemphasized the process of doing this filtering also reduced the magnitude of the signal in the audio file. As such, this file shows two things. The ability to pick up lower level signal and also the algorithms tolerance to signals that not emphasized when transmitted, but were deemphasized when received. The results of no, bandpass, and emphasis filtering can be seen in their respective Figure \ref{T1FiltNo}, \ref{T1Filt0}, and \ref{T1Filt6} for Track 1. The data from demodulating Track 2 can be seen in Figure \ref{T2FiltNo}, \ref{T2Filt0}, and \ref{T2Filt6}. As was caught during the Open Tracker 3 Test with noise it can be noticed that the Goertzel and PLL algorithms are still doing well on Track 1, and also the Mixed preclocking is doing fairly well. With the filter that is applied on Track 1 to create Track 2 it is basically the opposite effect of Toledo's emphasis filter. This can be seen by looking at the performance of the Goertzel Demodulator which does poorly with both other filterings on Track 2. However its ability to detect low level signals and this reversal of the emphasis filtering applied makes it end of having comperable results to the just band pass filter on Track 1 - 956 versus 965. 
+
+\begin{figure}
+  \centering
+	\includegraphics[width=0.75\linewidth]{images/SoftwarePerformanceonTrack1wNoFilter.png} 
+	\caption{Software performance on the raw signal from Track 1.}
+   \label{T1FiltNo}
+\end{figure}
+\begin{figure}
+  \centering
+	\includegraphics[width=0.75\linewidth]{images/SoftwarePerformanceonTrack1wBandpassFilter.png} 
+	\caption{Software performance with a bandpass filter on Track 1.}
+   \label{T1Filt0}
+\end{figure}
+\begin{figure}
+  \centering
+	\includegraphics[width=0.75\linewidth]{images/SoftwarePerformanceonTrack1wEmphasisFilter.png} 
+	\caption{Software performance with an emphasis filter on Track 1.}
+   \label{T1Filt6}
+\end{figure}
+\begin{figure}
+  \centering
+	\includegraphics[width=0.75\linewidth]{images/SoftwarePerformanceonTrack2wNoFilter.png} 
+	\caption{Software performance on the raw signal from Track 2.}
+   \label{T2FiltNo}
+\end{figure}
+\begin{figure}
+  \centering
+	\includegraphics[width=0.75\linewidth]{images/SoftwarePerformanceonTrack2wBandpassFilter.png} 
+	\caption{Software performance with a bandpass filter on Track 2.}
+   \label{T2Filt0}
+\end{figure}
+\begin{figure}
+  \centering
+	\includegraphics[width=0.75\linewidth]{images/SoftwarePerformanceonTrack2wEmphasisFilter.png} 
+	\caption{Software performance with an emphasis filter on Track 2.}
+   \label{T2Filt6}
+\end{figure}
+
+
+\subsection{Hardware and Software Comparisons}
+It is now time to actually compare the new software implementations to the old ones and also compare to the hardware. The first thing that can be noticed is that the Goertzel Filter ended up doing very well, and in some cases better than the original correlation. Secondly, the complicated preclocking algorithm was also able to hold its ground and still be a top contender. In fact the top three software algorithms were Correlation, Goertzel, and Mixed Preclocking with 964, 965, and 939 packets decoded from Track 1 with the bandpass filter. Even though they all have different number of packets decoded they each still have their expertise with some packets being decoded by one that were not decoded by others. For instance when the three are ran together there is a total of 975 packets decoded due to the fact that Goertzel gets 12 packets that the other two do not, Correlation gets 7 that the others do not, and Preclocking decoded 3 that the others missed. This could still be a good argument for the use of hardware over software since it is very possible and easy to run multiple approaches in parallel. Especially since the cost of this is only 5 minutes and 2 seconds on a file that is 25:49 long.
+
+For the real challenge, is the software better than the hardware? Looking at the highest numbers, no, but looking at the bigger picture, maybe. One thing about the hardware is that it is prone to variations and in need of periodic tuning. So if instead of looking at the best of the breed, the average values are compared under the presumption that this would correspond to the average ham's decoding capabilities, then the software does decode more packets. Additionally, the software does not have any capacitors that will dry up or solder joints that may become brittle and affect the performance. The performance of the software today will be exactly the same in 5, 10, many years. The average number of packetd decoded by the hardware on Track 1 was 935. Looking at this value any one of the three algorithms that are the top contenders could be considered to be better.
