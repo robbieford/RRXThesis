@@ -1,0 +1,1 @@
+Direwolf runs 9 demodulators in paralled to get 1022 frames. Each has a different filter varying from -6dB to +12dB but still utilizes the smae underlying correlation algorithm.
