@@ -1,17 +1,18 @@
 \chapter{Bell 202 Demodulation Techniques}
-There are a few primary approaches to demodulating 1200 baud 1200Hz/2200Hz AFSK signals in hardware.  However, before talking about the techniques for doing AFSK demodulation, it is worth specifying what type of FSK Bell 202 is. There are two features that are relevant for taking into consideration when demodulating the signal. First is that it is asynchronous, meaning that there is no separate clocking signal and the clocking is embedded within the data signal. If it were synchronous, there would be two different signals coming into the demodulator (which would be the data carrying signal and a clocking signal). The second characteristic is that the FSK is coherent or continuous. This means that there is a continuous signal at bit boundaries and there are no jumps as the signal changes from one frequency to another as seen in Figure \ref{coherentFSKExample} as opposed to non-coherent Figure \ref{noncoherentFSKExample}. Another name sometime applied to this method of FSK, coherent FSK, is continuous-phase frequency shift keying or CPFSK\,\cite{WikipediaCPFSK}. Among the demodulation techniques are edge detection, correlation, filtering, and phase-locked-loops (PLLs). Each of these will be explained in more detail in the corresponding sections below; however with Correlation and Filtering being very popular and mentioned in many books and applications, there is a lot of overlap so more detailed information can be found in the following references\,\cite{MarvinK.Simon1995,Sklar1988,J.Das1986,Proakis1983,Seguine2006,Semiconductor}. The following sections explain how the demodulation approach works with the software implementation details being saved for the implementation chapter. However, there will be an additional section at the end of this chapter to discuss some of the potential advantages of using software over hardware.
+There are a few primary approaches to demodulating 1200 baud 1200Hz/2200Hz AFSK signals in hardware.  However, before talking about the techniques for doing AFSK demodulation, it is worth specifying what type of FSK Bell 202 is. There are two features that are relevant for taking into consideration when demodulating the signal. First is that it is asynchronous, meaning that there is no separate clocking signal and the clocking is embedded within the data signal. If it were synchronous, there would be two different signals coming into the demodulator (which would be the data carrying signal and a clocking signal). The second characteristic is that the FSK is coherent or continuous. This means that there is a continuous signal at bit boundaries and there are no jumps as the signal changes from one frequency to another as seen in Figure \ref{coherentFSKExample} as opposed to non-coherent Figure \ref{noncoherentFSKExample} which does have these jumps. Another name sometime applied to this method of FSK, coherent FSK, is continuous-phase frequency shift keying or CPFSK\,\cite{WikipediaCPFSK}.
+
 \begin{figure}
-  \centering
+	\centering
 	\includegraphics[width=0.75\linewidth]{images/CoherentFSK.png} 
-	\caption{Example of a non-coherent FSK signal.}
-   \label{coherentFSKExample}
-\end{figure}
-\begin{figure}
-  \centering
+	\caption{Example of a coherent FSK signal.}
+	\label{coherentFSKExample}
+	\vspace{15mm}
 	\includegraphics[width=0.75\linewidth]{images/NonCoherentFSK.png} 
-	\caption{Example of a non-coherent FSK signal.}
-   \label{noncoherentFSKExample}
+	\caption{Example of a non-coherent FSK }
+	\label{noncoherentFSKExample}
 \end{figure}
+
+Among the demodulation techniques for coherent FSK are edge detection, correlation, filtering, and phase-locked-loops (PLLs). Each of these will be explained in more detail in the corresponding sections below; however with Correlation and Filtering being very popular and mentioned in many books and applications, there is a lot of overlap so more detailed information can be found in the following references\,\cite{MarvinK.Simon1995,Sklar1988,J.Das1986,Proakis1983,Seguine2006,Semiconductor}. The following sections explain how the demodulation approach works with the software implementation details being saved for the implementation chapter. However, there will be an additional section at the end of this chapter to discuss some of the potential advantages of using software over hardware.
 
 \section{Edge Detection}
 An edge detection, or zero-crossing, demodulator identifies rising and falling edges in the signal to determine the frequency present. In the TCM3105 chip, which is an FSK modem, rising and falling edges trigger pulses that are at a frequency that is double the input frequency\,\cite{Instruments1994}. Although this is how it is done in hardware, it may be easier to understand through the more simple discussion of zero-crossings. The idea is that based off of the time elapsed between zero crossings (rising and falling edges or vice versa) of the signal, one-half the period of the waveform can be measured. Once the period has been calculated the frequency can then be easily calculated using the inverse relationship between period and frequency, \textit{f} = 1 /T where \textit{f} is the frequency and T is the period\,\cite{Seguine2006}. Just to reiterate, two consecutive zero crossings is only half of the period do to the nature of sinusoidal signals. As the TCM3105 is an older chip, a replacement is now commonly used in 1200 baud modem projects, and that is the MX614 made by MX-COM\,\cite{Mitrenga2000}.
