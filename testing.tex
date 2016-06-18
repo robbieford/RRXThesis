@@ -2,8 +2,14 @@
 In order to be able to evaluate the results from this research, each demodulation technique considered needs to be tested and the number of packets that each technique was able to successfully decode needs to be compared. From this analysis, it will be seen which techniques are effective and are able to decode relatively more packets as opposed to those that decode fewer. In order to validate the software techniques, results for dedicated hardware will also be collected for comparison. The testing for both the dedicated hardware and the software algorithms will be described in the corresponding sections below.
 
 \section{Hardware Testing Setup}
-The testing setup for the hardware is fairly simple since they are basically black boxes that just need to be supplied with the correct inputs. Each piece of hardware has two connections; one is the radio port, and the other is the serial connection. As the name implies, the radio port is used to be able to interface with the radio. This port has connections such as transmit audio, receive audio, push-to-talk (PTT), supply voltage (VCC), and ground. A digram of the common radio port can be seen in Figure \ref{RadioPortPinout} and found in any manual including those of Argent Data\,\cite{Systems2013}. Since this was common between multiple pieces of hardware, a simple break-out board was created that allowed for a more universal audio transport mechanism of 3.5mm tip-ring-sleeve connectors, and also a 2.5mm barrel jack for power. This was much simpler than actually interfacing with a radio since the audio could just be played from a computer into the device; this can be seen in Figure \ref{BreakOutBoard}. 
+The testing setup for the hardware is fairly simple since they are basically black boxes that just need to be supplied with the correct inputs. Each piece of hardware has two connections; one is the radio port, and the other is the serial connection. As the name implies, the radio port is used to be able to interface with the radio. This port has connections such as transmit audio, receive audio, push-to-talk (PTT), supply voltage (VCC), and ground. A digram of the common radio port can be seen in Figure \ref{RadioPortPinout} and found in any manual including those of Argent Data\,\cite{Systems2013}. Since this was common between multiple pieces of hardware, a simple break-out board was created that allowed for a more universal audio transport mechanism of 3.5mm tip-ring-sleeve connectors, and also a 2.5mm barrel jack for power (Figure \ref{BreakOutBoard}). This was much simpler than actually interfacing with a radio since the audio could just be played from a computer into the device (Figure \ref{TNCLaptopTestSetup}). 
 
+\begin{figure}
+  \centering
+	\includegraphics[width=0.75\linewidth]{images/TNCLaptopTestSetup.PNG} 
+	\caption{Block diagram of the test setup used for testing hardware. Audio was played on a laptop headphone port and transported to the device using a 3.5mm tip-ring-sleeve audio cable.}
+   \label{TNCLaptopTestSetup}
+\end{figure}
 \begin{figure}
   \centering
 	\includegraphics[width=0.75\linewidth]{images/RadioPortPinout.png} 
