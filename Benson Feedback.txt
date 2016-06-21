@@ -1,30 +1,14 @@
-Give the puch line up front and then give the background will make it easier for the reader
-Maybe add a table showing cost of 4 channels for hardware vs software.
-For instance, -on- one at bottom of page 2.
 Maybe combine Future Work and Conclusion chapters?
-Page 5 yes I did mean physical
 clocking energy discussed in two places, the second time it was mentioned it makes more sense.
-Diagram showing the two bytes of data with flag at start at end and how the data might be changed to include the stuffed bits.
-Figure 2.1 shouldnt it be ...? no, indicate that you need the next or previous bit period to figure out the next symbol
-Section 3.3 move the costs from here into the table that is going into chapter 1.
-define performance in terms of do we want it to decode better...? To decode the same number of packets in the same amount of time...
-Section 4.5 if where Benson really understood what I am doing and some of this language can be put in the abstract and introduction.
-Section 5.2 reword to talk about how the noise is constant but more noticable since lower SNR.
 Section 5.2 picture showing jostling.
-One graph showing the different sample rates or omit the sentance
-Indicate somewhere what "Sample Number" is
-30ms was automatically generated and in our software we choose 300ms to audibly hear the different packets.
 Figure 6.2 might have a better example of the zero crossing jostling
-Indicate in section 6.2 that we will talk about what SNR the different approaches failed at.
 Section 8.3 add a picture?
 Section 8.5 picture?
 8.8 #2 explaination
 In the beginning of chapter 8 list and catagorieze the techniques maybe switch to 8.1.1...
 Two Punchlines, less cost and that the software is better now than before.
 Table 9.3 - OT3 Micro uses x demodulation scheme and hence is more susceptible to ____
-Page 51 The existing software solution is on the far left of the plots. This can be considered the baseline and the new implementations can be seen to the right of this baseline.
 More comments on the Peak demodulator why did it not get 40, but it could get 200?
 Figure 9.4 what packets did it miss, why is it not 40?
 Is there a way to link these demodulation techniques to their results. Link chapters 5 and 9. Add a table to show which challenges each technique is most suscptible to.
-Put the baseline on the far left in figure 9.19
 It matches, but what advantage does it bring...? Talk about time to decode.
