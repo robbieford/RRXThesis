@@ -16,13 +16,17 @@ Among the demodulation techniques for coherent FSK are edge detection, correlati
 
 \begin{table}
 	\begin{center}
-		\begin{tabular}{ | l | c | c | c | c | c | c | }
-		\hline
-			Device & OpenTracker2 & OpenTracker3 & Kantronics Kam & MFJ-1278 & PK-88 & PK-232 \\ \hline
-			Demodulation Technique & PLL using XR-2211 Chip & Software time delay correlation & Edge detection using TCM3105 Chip & PLL using XR-2211 & Digital filters using AMD 7910 chip & Analog filters \\ \hline
+		\begin{tabular}{ | l | l | }
+			Device & Demodulation Technique \\ \hline
+			OpenTracker 2 & PLL using XR-2211 \\ \hline
+			OpenTracker 3 & Software time delay correlation \\ \hline
+			Kantronics Kam & Edge detection using TCM3105 Chip \\ \hline
+			MFJ-1278 & PLL using XR-2211 \\ \hline
+			PK-88 & Digital filters using AMD 7910 chip \\ \hline
+			PK-232 & Analog filters \\ \hline
 		\end{tabular}
-		\caption[Hardware and Software Cost Comparison]{Cost comparison of conducting APRS communications on 1 through 4 channels for hardware versus software assuming the user already owns a computer.}
-		\label{costCompareTable}
+		\caption{Hardware demodulation techniques.}
+		\label{HardwareDemodTechniques}
 	\end{center}
 \end{table}
 
