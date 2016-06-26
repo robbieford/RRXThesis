@@ -12,7 +12,19 @@ There are a few primary approaches to demodulating 1200 baud 1200Hz/2200Hz AFSK 
 	\label{noncoherentFSKExample}
 \end{figure}
 
-Among the demodulation techniques for coherent FSK are edge detection, correlation, filtering, and phase-locked-loops (PLLs). Each of these will be explained in more detail in the corresponding sections below; however with Correlation and Filtering being very popular and mentioned in many books and applications, there is a lot of overlap so more detailed information can be found in the following references\,\cite{MarvinK.Simon1995,Sklar1988,J.Das1986,Proakis1983,Seguine2006,Semiconductor}. The following sections in this chapter explain how the demodulation approach works with the software implementation details being saved for the Implementation chapter. However, there will be an additional section at the end of this chapter to discuss some of the potential advantages of using software over hardware.
+Among the demodulation techniques for coherent FSK are edge detection, correlation, filtering, and phase-locked-loops (PLLs). Each of these will be explained in more detail in the corresponding sections below; however with Correlation and Filtering being very popular and mentioned in many books and applications, there is a lot of overlap so more detailed information can be found in the following references\,\cite{MarvinK.Simon1995,Sklar1988,J.Das1986,Proakis1983,Seguine2006,Semiconductor}. The following sections in this chapter explain how the demodulation approach works with the software implementation details being saved for the Implementation chapter. However, there will be an additional section at the end of this chapter to discuss some of the potential advantages of using software over hardware. Before talking about all of the techniques a little context as to which onces are being used in the various pieces of harwadware can be found in Table \ref{HardwareDemodTechniques}.
+
+\begin{table}
+	\begin{center}
+		\begin{tabular}{ | l | c | c | c | c | c | c | }
+		\hline
+			Device & OpenTracker2 & OpenTracker3 & Kantronics Kam & MFJ-1278 & PK-88 & PK-232 \\ \hline
+			Demodulation Technique & PLL using XR-2211 Chip & Software time delay correlation & Edge detection using TCM3105 Chip & PLL using XR-2211 & Digital filters using AMD 7910 chip & Analog filters \\ \hline
+		\end{tabular}
+		\caption[Hardware and Software Cost Comparison]{Cost comparison of conducting APRS communications on 1 through 4 channels for hardware versus software assuming the user already owns a computer.}
+		\label{costCompareTable}
+	\end{center}
+\end{table}
 
 \section{Edge Detection}
 An edge detection, or zero-crossing, demodulator identifies rising and falling edges in the signal to determine the frequency present. In the TCM3105 chip, which is an FSK modem, rising and falling edges trigger pulses that are at a frequency that is double the input frequency\,\cite{Instruments1994}. Although this is how it is done in hardware, it may be easier to understand through the more simple discussion of zero-crossings. The idea is that based off of the time elapsed between zero crossings (rising and falling edges or vice versa) of the signal, one-half the period of the waveform can be measured. Once the period has been measured the frequency can then be easily calculated using the inverse relationship between period and frequency, \textit{f} = 1 /T where \textit{f} is the frequency and T is the period\,\cite{Seguine2006}. Just to reiterate, two consecutive zero crossings is only half of the period do to the nature of sinusoidal signals. As the TCM3105 is an older chip, a replacement is now commonly used in 1200 baud modem projects, and that is the MX614 made by MX-COM\,\cite{Mitrenga2000}.
