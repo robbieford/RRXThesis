@@ -23,5 +23,20 @@ The testing setup for the hardware is fairly simple since they are basically bla
    \label{BreakOutBoard}
 \end{figure}
 
+\subsection{Setting TNC Audio Levels}
+During the testing setting the audio level to be percisely correct for optimal performance would have been ideal. However, there is language in the user manuals for the various TNCs that is definitely up for interpretation. Such as in the MFJ-1278 manual which reads: "Continue to advance the volume control until there is approximately twice as much audio present at the receiver output <as the minimum>" \cite{MFJ1278Man}. Additinally the manual for the Kantronics Kam Plus says: "Increase the volume control slightly from this point" \cite{KamPlusGettingStarted}. The volume level that was used for the audio provided to the TNCs was setting the laptop system volume to 50\% which worked out to about 1.1V peak-to-peak (Vpp). After doing some deeper reading of the individual TNC user manuals and verifying the expected results that were outlined, the approximate minimum optimal audio levels can be seen in Table \ref{TNCAudioLevels}.
+
+\begin{table}
+	\begin{center}
+		\begin{tabular}{ | l | c | c | c | c | }
+         \hline
+			TNC & KamPlus & MFJ-1278 & PK-88 & PK-232 \\ \hline
+			Level (Vpp) & 0.5 & 0.25 & 0.15 & 0.35 \\ \hline
+		\end{tabular}
+		\caption{Minimum Optimal TNC Input Audio Levels \cite{KamPlusGettingStarted,MFJ1278Man,PK88Man,Inc.2001}.}
+		\label{TNCAudioLevels}
+	\end{center}
+\end{table}
+
 \section{Software Testing Setup}
 Included within the javAX25 suite was a testing application that could both generate and decode packets. However, it was limited to only being able to specify one audio file and one demodulation algorithm. Using this test file as a basis, a new testing application was created that allowed for the multiple demodulators to be compared side by side against multiple audio files with a single run of the application. In addition to the output being printed to the console, it was saved to a file. Having these features in the testing application allowed for a much more streamlined analysis of all the algorithms collectively and tuning individual algorithms. One very convenient aspect of programmatically testing is that it is very easy to add a loop to try a range of tuning parameters and then look at the results to decide what is the best option. All of the results listed in the following chapter are from the testing application and mechanism described here.
