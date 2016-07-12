@@ -1,5 +1,5 @@
 %Import the Thesis formatting
-\documentclass[12pt]{ucthesis}
+\documentclass[11pt]{ucthesis}
 
 %Package Imports
 \usepackage[pdftex]{graphicx}
@@ -15,15 +15,28 @@
 	urlcolor=blue
 }
 
-\setcounter{tocdepth}{3}
+\titleformat{\part}
+	{\normalfont\fontsize{12}{12}\rm\center}{}{1em}{}
+\titleformat{\chapter}
+{\normalfont\fontsize{12}{12}\rm\center}{\thechapter}{1em}{}
+\titleformat{\section}
+	{\normalfont\fontsize{12}{12}\rm}{\thesection}{1em}{}
+\titleformat{\subsection}
+	{\normalfont\fontsize{12}{12}\rm}{\thesection}{1em}{}
 
 \begin{document}
 \title{Analysis of Various Algorithmic approaches to Software-Based 1200 Baud Audio Frequency Shift Keying Demodulation for APRS}
 \author{Robert F. Campbell}
-\degreemonth{May} \degreeyear{2016} \degree{Master of Science}
+\degreemonth{June} \degreeyear{2016} \degree{Master of Science}
 \defensemonth{May} \defenseyear{2016}
-\numberofmembers{3} \chair{John Bellardo, Ph.D.} \othermemberA{Bridget Benson, Ph.D.} \othermemberB{Dennis Derickson, Ph.D.} \field{Computer Science} \campus{San Luis Obispo}
-\copyrightyears{seven}
+\numberofmembers{3} \chair{John Bellardo, Ph.D.\newline
+Associate Professor, Computer Science}
+\othermemberA{Bridget Benson, Ph.D.\newline
+Assistant Professor, Electrical Engineering}
+\othermemberB{Dennis Derickson, Ph.D.\newline
+Department Chair, Electrical Engineering}
+\field{Computer Science} \campus{San Luis Obispo}
+%\copyrightyears{seven}
 \maketitle
 
 \begin{frontmatter}
