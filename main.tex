@@ -7,22 +7,32 @@
 \usepackage{url}
 \usepackage{titlesec}
 \usepackage{hyperref}
+%\usepackage{etoolbox}
+%\makeatletter
+%\patchmd{\@chapter}{\addtocontents{lof}{\protect\addvspace{10\p@}}}{}{}{}
+%\makeatother
+
 \hypersetup{
 	colorlinks,
 	citecolor=black,
 	filecolor=black,
 	linkcolor=black,
-	urlcolor=blue
+	urlcolor=black
 }
+
+\usepackage{float}
+\floatstyle{plaintop}
+\restylefloat{table}
 
 \titleformat{\part}
 	{\normalfont\fontsize{12}{12}\rm\center}{}{1em}{}
 \titleformat{\chapter}
-{\normalfont\fontsize{12}{12}\rm\center}{\thechapter}{1em}{}
+	{\normalfont\fontsize{12}{12}\rm\center}{\thechapter}{1em}{}
+\titlespacing{\chapter}{0pt}{-25pt}{0pt}
 \titleformat{\section}
 	{\normalfont\fontsize{12}{12}\rm}{\thesection}{1em}{}
 \titleformat{\subsection}
-	{\normalfont\fontsize{12}{12}\rm}{\thesection}{1em}{}
+	{\normalfont\fontsize{12}{12}\rm}{\thesubsection}{1em}{}
 
 \begin{document}
 \title{Analysis of Various Algorithmic approaches to Software-Based 1200 Baud Audio Frequency Shift Keying Demodulation for APRS}
@@ -55,6 +65,10 @@ Digital communications continues to be a relevant field of study as new technolo
 \listoffigures
 
 \end{frontmatter}
+
+\addtocontents{toc}{
+\vskip 0.4em CHAPTER
+}
 
 \input{introduction.tex}
 \input{aprs.tex}
