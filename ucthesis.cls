@@ -985,7 +985,7 @@ Thesis Committee Chair
   \if@twocolumn\@restonecoltrue\onecolumn\fi
   \chapter*{\listfigurename\@mkboth{\uppercase{\listfigurename}}%
 {\uppercase{\listfigurename}}}
-   \addcontentsline{toc}{chapter}{\listfigurenamelower}
+   \addcontentsline{toc}{chapter}{\listfigurename}
    {\ssp\@starttoc{lof}}\if@restonecol
     \twocolumn\fi}
 
@@ -1002,7 +1002,7 @@ Thesis Committee Chair
   \if@twocolumn\@restonecoltrue\onecolumn\fi
   \chapter*{\listtablename\@mkboth{\uppercase{\listtablename}}%
 {\uppercase{\listtablename}}}
-   \addcontentsline{toc}{chapter}{\listtablenamelower}
+   \addcontentsline{toc}{chapter}{\listtablename}
    {\ssp\@starttoc{lot}}\if@restonecol
   \twocolumn\fi}
 
@@ -1036,7 +1036,7 @@ Thesis Committee Chair
 
 \def\thebibliography#1{\chapter*{\bibname\@mkboth{%
 \uppercase{\bibname}}{\uppercase{\bibname}}}
-  \addcontentsline{toc}{chapter}{\bibnamelower}
+  \addcontentsline{toc}{chapter}{\bibname}
   \list{\@biblabel{\@arabic\c@enumiv}}%
            {\settowidth\labelwidth{\@biblabel{#1}}%
             \leftmargin\labelwidth
