@@ -1193,7 +1193,7 @@ Thesis Committee Chair
 \newlength\abovecaptionskip
 \newlength\belowcaptionskip
 \setlength\abovecaptionskip{10\p@}
-\setlength\belowcaptionskip{0\p@}
+\setlength\belowcaptionskip{10\p@}
 \long\def\@makecaption#1#2{%
   \vskip\abovecaptionskip
   \sbox\@tempboxa{{#1}.\hspace{6pt}#2}%
