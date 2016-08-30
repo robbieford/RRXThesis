@@ -1337,8 +1337,8 @@ Thesis Committee Chair
    \thesection. \ \fi ##1}}}}
 \else               % If one-sided printing.
 \def\ps@headings{\let\@mkboth\markboth
-\def\@oddfoot{}\def\@evenfoot{}%     No feet.
-\def\@oddhead{{\slshape \rightmark}\hfil \rmfamily\thepage}% Heading.
+\def\@oddfoot{\hfil\thepage\hfil}\def\@evenfoot{}%     No feet.
+\def\@oddhead{{\slshape \rightmark}\hfil \rmfamily}% Heading.
 \def\chaptermark##1{\markright {\uppercase{\ifnum \c@secnumdepth >\m@ne
   \@chapapp\ \thechapter. \ \fi ##1}}}}
 \fi
