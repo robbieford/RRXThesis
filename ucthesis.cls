@@ -345,7 +345,7 @@
 
     A Thesis \par
     Presented to \par
-    the Faculty of California Polytechnic State University, \par
+    the Faculty of California Polytechnic State University \par
     \@campus
     
 		\addvspace{1.4in}    
@@ -957,25 +957,24 @@ Thesis Committee Chair
 %% First line of l@chapter changed 24 May 89, as suggested
 %% by Jerry Leichter.
 %%
-\def\l@chapter{\vskip 0.3em \@dottedtocline{0}{0.0em}{1.5em}}
-%#1#2{\addpenalty{-\@highpenalty}%
+\def\l@chapter#1#2{\addpenalty{-\@highpenalty}%
 %   \vskip 1.0em plus\p@   % space above chapter line
-%   \vskip 0.3em plus\p@   % space above chapter line
-%   \@tempdima 1.5em       % width of box holding chapter number
-%   \begingroup
-%     \parindent \z@ \rightskip \@pnumwidth
-%     \parfillskip -\@pnumwidth
+   \vskip 0.3em plus\p@   % space above chapter line
+   \@tempdima 1.5em       % width of box holding chapter number
+   \begingroup
+     \parindent \z@ \rightskip \@pnumwidth
+     \parfillskip -\@pnumwidth
      %\bfseries                  % Boldface.
-%     \leavevmode          % TeX command to enter horizontal mode.
-%      \advance\leftskip\@tempdima  %% added 5 Feb 88 to conform to
-%      \hskip -\leftskip            %% 25 Jan 88 change to \numberline
-%     #1\nobreak\hfil \nobreak\hbox to\@pnumwidth{\hss #2}\par
-%     \penalty\@highpenalty %% added 24 May 89, suggested by J. Leichter
-%   \endgroup}
+     \leavevmode          % TeX command to enter horizontal mode.
+      \advance\leftskip\@tempdima  %% added 5 Feb 88 to conform to
+      \hskip -\leftskip            %% 25 Jan 88 change to \numberline
+     #1\nobreak\hfil \nobreak\hbox to\@pnumwidth{\hss #2}\par
+     \penalty\@highpenalty %% added 24 May 89, suggested by J. Leichter
+   \endgroup}
 
-\def\l@section{\vskip 0.3em \@dottedtocline{1}{1.5em}{2.3em}}
-\def\l@subsection{\vskip 0.3em \@dottedtocline{2}{3.8em}{3.2em}}
-\def\l@subsubsection{\vskip 0.3em \@dottedtocline{3}{7.0em}{4.1em}}
+\def\l@section{\@dottedtocline{1}{1.5em}{2.3em}}
+\def\l@subsection{\@dottedtocline{2}{3.8em}{3.2em}}
+\def\l@subsubsection{\@dottedtocline{3}{7.0em}{4.1em}}
 \def\l@paragraph{\@dottedtocline{4}{10em}{5em}}
 \def\l@subparagraph{\@dottedtocline{5}{12em}{6em}}
 
@@ -986,7 +985,7 @@ Thesis Committee Chair
   \if@twocolumn\@restonecoltrue\onecolumn\fi
   \chapter*{\listfigurename\@mkboth{\uppercase{\listfigurename}}%
 {\uppercase{\listfigurename}}}
-   \addcontentsline{toc}{chapter}{\listfigurename}
+   \addcontentsline{toc}{chapter}{\listfigurenamelower}
    {\ssp\@starttoc{lof}}\if@restonecol
     \twocolumn\fi}
 
@@ -1003,7 +1002,7 @@ Thesis Committee Chair
   \if@twocolumn\@restonecoltrue\onecolumn\fi
   \chapter*{\listtablename\@mkboth{\uppercase{\listtablename}}%
 {\uppercase{\listtablename}}}
-   \addcontentsline{toc}{chapter}{\listtablename}
+   \addcontentsline{toc}{chapter}{\listtablenamelower}
    {\ssp\@starttoc{lot}}\if@restonecol
   \twocolumn\fi}
 
@@ -1037,7 +1036,7 @@ Thesis Committee Chair
 
 \def\thebibliography#1{\chapter*{\bibname\@mkboth{%
 \uppercase{\bibname}}{\uppercase{\bibname}}}
-  \addcontentsline{toc}{chapter}{\bibname}
+  \addcontentsline{toc}{chapter}{\bibnamelower}
   \list{\@biblabel{\@arabic\c@enumiv}}%
            {\settowidth\labelwidth{\@biblabel{#1}}%
             \leftmargin\labelwidth
@@ -1338,11 +1337,8 @@ Thesis Committee Chair
    \thesection. \ \fi ##1}}}}
 \else               % If one-sided printing.
 \def\ps@headings{\let\@mkboth\markboth
-\def\@oddfoot{\rm\hfil\thepage\hfil}
-\def\@evenfoot{\rm\hfil\thepage\hfil}           % page numbers
-%\def\@oddfoot{}\def\@evenfoot{}%     No feet.
-%\def\@oddhead{{\slshape \rightmark}\hfil \rmfamily\thepage}% Heading.
-\def\@oddhead{{\slshape \rightmark}\hfil \rmfamily}% Heading.
+\def\@oddfoot{}\def\@evenfoot{}%     No feet.
+\def\@oddhead{{\slshape \rightmark}\hfil \rmfamily\thepage}% Heading.
 \def\chaptermark##1{\markright {\uppercase{\ifnum \c@secnumdepth >\m@ne
   \@chapapp\ \thechapter. \ \fi ##1}}}}
 \fi
