@@ -957,21 +957,22 @@ Thesis Committee Chair
 %% First line of l@chapter changed 24 May 89, as suggested
 %% by Jerry Leichter.
 %%
-\def\l@chapter#1#2{\addpenalty{-\@highpenalty}%
-%   \vskip 1.0em plus\p@   % space above chapter line
-   \vskip 0.3em plus\p@   % space above chapter line
-   \@tempdima 1.5em       % width of box holding chapter number
-   \begingroup
-     \parindent \z@ \rightskip \@pnumwidth
-     \parfillskip -\@pnumwidth
-     %\bfseries                  % Boldface.
-     \leavevmode          % TeX command to enter horizontal mode.
-      \advance\leftskip\@tempdima  %% added 5 Feb 88 to conform to
-      \hskip -\leftskip            %% 25 Jan 88 change to \numberline
-     #1\nobreak\hfil \nobreak\hbox to\@pnumwidth{\hss #2}\par
-     \penalty\@highpenalty %% added 24 May 89, suggested by J. Leichter
-   \endgroup}
+%\def\l@chapter#1#2{\addpenalty{-\@highpenalty}%
+%%   \vskip 1.0em plus\p@   % space above chapter line
+%   \vskip 0.3em plus\p@   % space above chapter line
+%   \@tempdima 1.5em       % width of box holding chapter number
+%   \begingroup
+%     \parindent \z@ \rightskip \@pnumwidth
+%     \parfillskip -\@pnumwidth
+%     %\bfseries                  % Boldface.
+%     \leavevmode          % TeX command to enter horizontal mode.
+%      \advance\leftskip\@tempdima  %% added 5 Feb 88 to conform to
+%      \hskip -\leftskip            %% 25 Jan 88 change to \numberline
+%     #1\nobreak\hfil \nobreak\hbox to\@pnumwidth{\hss #2}\par
+%     \penalty\@highpenalty %% added 24 May 89, suggested by J. Leichter
+%   \endgroup}
 
+\def\l@chapter{\@dottedtocline{0}{0em}{1.5em}}
 \def\l@section{\@dottedtocline{1}{1.5em}{2.3em}}
 \def\l@subsection{\@dottedtocline{2}{3.8em}{3.2em}}
 \def\l@subsubsection{\@dottedtocline{3}{7.0em}{4.1em}}

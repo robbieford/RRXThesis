@@ -20,6 +20,14 @@
 \floatstyle{plaintop}
 \restylefloat{table}
 
+%remove space added between chapters in the lot and lof
+\makeatletter
+\newcommand*{\noaddvspace}{\renewcommand*{\addvspace}[1]{}}
+\addtocontents{lof}{\protect\noaddvspace}
+\addtocontents{lot}{\protect\noaddvspace}
+\makeatother
+
+
 \titleformat{\part}
 	{\normalfont\fontsize{12}{12}\rm\center}{}{1em}{}
 \titleformat{\chapter}
