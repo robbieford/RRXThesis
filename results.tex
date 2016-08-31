@@ -6,15 +6,15 @@ In the scope of this research a total of 12 pieces of hardware were tested. They
 
 The first two tests consisting of clean packets - 40 generated from the OpenTracker and 200 using Toledo's suite - was relatively uninteresting. Essentially every piece of hardware decoded all 40 and all 200 packets. The only anomalies to this were that the OpenTracker USB was only able to decode 39 and 193 out of the 40 and 200 packet files respectively. Additionally the OpenTracker 3 Micro missed one packet in the 200 packet file to only decode 199. Since there is no real way to debug and see the cause of decoding relatively fewer or more packets, just the data for these hardware items is presented as it was measured to allow for comparison to the software. This will continue to be the case for the remainder of this hardware section.
 
-Following the two easy files the next file is same content as the file with 40 packets in it, with the only difference being that noise was progressively added. In Figure \ref{allHardwareOT3Noise}, the two PK-88s stand out for being able to decode 25 of the 40 packets in this file, which is a calculated SNR of 0.8.
+Following the two easy files the next file is same content as the file with 40 packets in it, with the only difference being that noise was progressively added. In Figure \ref{allHardwareOT3Noise}, the two PK-88s stand out for being able to decode 25 of the 40 packets in this file, which is a calculated SNR of 0.8. Just a reminder that in this figure and future figures that present results for this test file the number above each bar represents the caluclated SNR.
 
  \begin{figure}
   \centering
 	\includegraphics[width=0.75\linewidth]{images/PerformanceofAllHardwareonOT3TestwithNoise.png} 
-	\caption{Number of packets successfully decoded for all tested hardware on the OpenTracker 3 test file with noise. The numbers above each bar are the approximate SNR.}
+	\caption{Number of packets successfully decoded for all tested hardware on the OpenTracker 3 test file with noise.}
    \label{allHardwareOT3Noise}
 \end{figure}
-
+\addvspace{20pt}
 The next two files are the ones that were used most extensively in the testing for comparison and tuning. Primarily the first, which is just a recording of traffic off the air. They are Track 1 and 2 from the APRS CD mentioned in the Demodulator Benchmarking Chapter. The results from Track 1 are in Figure \ref{allHardwareTrack1} and Track 2 in Figure \ref{allHardwareTrack2}. The top three performances of the hardware on Track 1 were the PK-88 (2) with 1007 packets decoded, the KAM with 988 Packets, and the KAM Plus (2) with 985 Packets. For Track 2 the top hardware was the KAM Plus (2) with 998, the KAM Plus (1) with 967, and the KAM with 938.
 
  \begin{figure}
@@ -82,19 +82,19 @@ Again, moving on from the "easy" files the performance of the software demodulat
 \begin{figure}
   \centering
 	\includegraphics[width=0.75\linewidth]{images/SoftwarePerformanceonNoisyOT3wNoFilter.png} 
-	\caption[Performance of software on the raw signal from OpenTracker Test with noise added.]{Performance of software on the raw signal from OpenTracker Test with noise added. The numbers above each bar are the approximate SNR.}
+	\caption{Performance of software on the raw signal from OpenTracker Test with noise added.}
    \label{OTNoiseFiltNo}
 \end{figure}
 \begin{figure}
   \centering
 	\includegraphics[width=0.75\linewidth]{images/SoftwarePerformanceonNoisyOT3wBandpassFilter.png} 
-	\caption[Performance of software on OpenTracker Test with noise added with a flat bandpass filter.]{Performance of software on OpenTracker Test with noise added with a flat bandpass filter. The numbers above each bar are the approximate SNR.}
+	\caption{Performance of software on OpenTracker Test with noise added with a flat bandpass filter.}
    \label{OTNoiseFilt0}
 \end{figure}
 \begin{figure}
   \centering
 	\includegraphics[width=0.75\linewidth]{images/SoftwarePerformanceonNoisyOT3wEmphasisFilter.png} 
-	\caption[Performance of Software on OpenTracker Test with noise added with an emphasis filter.]{Performance of Software on OpenTracker Test with noise added with an emphasis filter. The numbers above each bar are the approximate SNR.}
+	\caption{Performance of Software on OpenTracker Test with noise added with an emphasis filter.}
    \label{OTNoiseFilt6}
 \end{figure}
 
